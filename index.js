@@ -4,6 +4,10 @@ months = ["January", "February", "March", "April", "May", "June", "July", "Augus
 
   window.addEventListener("load", () =>{
       console.log("Page loaded...");
+      data = JSON.parse(localStorage.getItem("eventDatabase"));
+      if(data != null){
+        init();
+      }
       loadJSON();
       registerSW();
   });
@@ -43,6 +47,7 @@ months = ["January", "February", "March", "April", "May", "June", "July", "Augus
   })
   .then(function(myJson) {
     data = myJson;
+    localStorage.setItem("eventDatabase", JSON.stringify(data));
     console.log("Data fetched. Initializing...");
     init();
   });
@@ -66,6 +71,13 @@ function about(){
   }
 }
 
+function allowNotifications(){
+  Notification.requestPermission().then(function(result) {
+    console.log(result);
+  });
+}
+
+
 function saveSettings(){
   myName = document.getElementById("settingsName").value;
   setCookie("myName", encodeURIComponent(myName), 365);
@@ -79,6 +91,9 @@ function saveSettings(){
     setCookie("myGroup", encodeURIComponent("Group 2"), 365);
   }
   hideSettings();
+  var img = 'icons-192.png';
+var text = 'Settings are saved.';
+var notification = new Notification('TheoCal', { body: text, icon: img });
 }
 
 function showSettings(){
@@ -181,15 +196,16 @@ function hideSettings(){
     return number + "th";
   }
 
-  function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
+  function setCookie(cname, cvalue, exdays=365) {
+    /*var d = new Date();
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
+    document.cookie = cname + "=" + cvalue + "; " + expires;*/
+    localStorage.setItem(cname, cvalue);
 }
 
   function getCookie(cname) {
-    var name = cname + "=";
+    /*var name = cname + "=";
     var ca = document.cookie.split(';');
     for(var i = 0; i <ca.length; i++) {
         var c = ca[i];
@@ -200,7 +216,13 @@ function hideSettings(){
             return c.substring(name.length,c.length);
         }
     }
-    return "";
+    return "";*/
+    if(localStorage.getItem(cname)!= null){
+      return localStorage.getItem(cname);
+    }else{
+      return"";
+    }
+    
 }
 
 
