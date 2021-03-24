@@ -64,8 +64,8 @@ function getMonthName(dateStr){
 function drawGridDay(id, dateStr, inactive = false){
     thisClass = "";
     if(todayStr==dateStr){
-        thisClass="today";
-        //document.getElementById(id).style.backgroundColor = "#328b8c";
+        //thisClass="today";
+        document.getElementById(id).style.backgroundColor = "#328b8c22";
     }
     if(inactive){
         //thisClass="inactive";
