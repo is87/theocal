@@ -27,6 +27,7 @@ body{
     position: absolute;
     top: 5vh;
     bottom: 5vh;
+    height: 90vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
