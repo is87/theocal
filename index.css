@@ -44,6 +44,8 @@ body{
 #bottom{
     background-color: #328b8c;
     color: #fff;
+    position: absolute;
+    bottom: 0;
     height: 5vh;
     line-height: 5vh;
     text-align: center;
