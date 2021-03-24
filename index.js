@@ -65,7 +65,7 @@ function drawGridDay(id, dateStr, inactive = false){
     thisClass = "";
     if(todayStr==dateStr){
         //thisClass="today";
-        document.getElementById(id).style.backgroundColor = "#328b8c22";
+        document.getElementById(id).style.backgroundColor = "#cfeeee";
     }
     if(inactive){
         //thisClass="inactive";
