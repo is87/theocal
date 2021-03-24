@@ -120,11 +120,14 @@ function clickDay(gridDay){
     document.getElementById("topOverlay").style.display = "block";
     document.getElementById("overlay").innerHTML = "";
     document.getElementById("overlay").style.display = "block";
+    eventsToday = 0;
     for(i=0;i<data.events.length;i++){
         if(data.events[i].date == dateStr){
             drawDayEvent(data.events[i]);
+            eventsToday++;
         }
     }
+    if(eventsToday==0)document.getElementById("overlay").innerHTML = "<div style='text-align:center; margin-top:1vh;'>NO EVENTS THIS DAY</div>";
 }
 
 function hideDay(){
