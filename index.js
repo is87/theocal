@@ -202,7 +202,7 @@ function loadJSON(){
     today = new Date();
     todayStr = dateToString(today);
     clickTime = today.valueOf();
-    /*var mc = new Hammer(document.getElementById("main"));
+    var mc = new Hammer(document.getElementById("main"));
     mc.on("swipeleft", function(ev) {
         if(new Date().valueOf()-clickTime > 100){
         comingMonth();
@@ -216,8 +216,7 @@ function loadJSON(){
             previousMonth();
             clickTime = new Date().valueOf();
             }
-    });*/
+    });
     
     drawMonth(todayStr);
-    //console.log(data.events[0]);
   }
