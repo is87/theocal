@@ -64,7 +64,10 @@ function getMonthName(dateStr){
 function drawGridDay(id, dateStr, inactive = false){
     thisClass = "";
     if(todayStr==dateStr){thisClass="today";}
-    if(inactive){thisClass="inactive";}
+    if(inactive){
+        //thisClass="inactive";
+        document.getElementById(id).style.opacity = "60%";
+    }
     document.getElementById(id).setAttribute("data-date", dateStr);
     document.getElementById(id).innerHTML = "<span class='"+thisClass+"'>"+removeZero(dateStr.substr(8))+"</span>";
     //document.getElementById(id).innerHTML += "<div class='gridEvent'>"+dateStr+"</div>";
