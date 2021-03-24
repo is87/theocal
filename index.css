@@ -1,0 +1,114 @@
+body{
+    margin:0;
+    font-family: 'Quicksand';
+}
+#top{
+    background-color: #328b8c;
+    color: #fff;
+    height: 5vh;
+    line-height: 5vh;
+    text-align: center;
+}
+#topOverlay{
+    background-color: #328b8c;
+    color: #fff;
+    height: 5vh;
+    line-height: 5vh;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    bottom: 95vh;
+    left: 0;
+    right: 0;
+    display: none;
+}
+#main{
+    background-color: #eee;
+    height: 90vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 1px 1px;
+    width: 100vw;
+}
+#overlay{
+    background-color: #eee;
+    width: 100vw;
+    position: absolute;
+    top: 5vh;
+    bottom: 5vh;
+    display: none;
+}
+#bottom{
+    background-color: #328b8c;
+    color: #fff;
+    height: 5vh;
+    line-height: 5vh;
+    text-align: center;
+}
+.gridDay{
+    text-align: center;
+    background-color: white;
+    padding-top: 1vh;
+    padding-right: 0.2vh;
+    padding-left: 0.2vh;
+    min-width: 0;
+}
+.gridEvent{
+    color: #fff;
+    background-color: #881f9b;
+    font-size: 1vh;
+    /*border: 1px solid #881f9b;*/
+    border-radius: 0.1vh;
+    white-space: pre;
+    overflow: hidden;
+    margin-top: 0.3vh;
+}
+
+.dayEvent{
+    margin-top: 1vh;
+    color: #fff;;
+    background-color: #881f9b;
+    padding:1vh;
+    
+}
+
+.dayEventGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-size: 1.5vh;
+    line-height: 2.5vh;
+    margin-top: 1vh;
+}
+
+.gridEventHeading{
+}
+
+.gridEventSubheading{
+    color: #ddd;
+}
+
+.meeting{
+    background-color: #ec2c2c;
+    /*border: 1px solid #ec2c2c;*/
+}
+
+.fieldService{
+    background-color: #eca02c;
+    /*border: 1px solid #eca02c;*/
+}
+
+.today{
+    background-color: #3399cc;
+    color: #fff;
+    border-radius: 0.5vh;
+    padding-left: 0.5vh;
+    padding-right: 0.5vh;
+}
+
+.inactive{
+    color: #999;
+}
+
+#activeMonth{
+    font-weight: bold;
+}

@@ -1,9 +1,10 @@
 const cacheName = "data-v1";
 const staticAssets = [
-    "./hammer.js",
+    "./hammer.min.js",
     "./manifest.json",
     "./index.html",
-    "./index.js"
+    "./index.js",
+    "./index.css"
 ];
 self.addEventListener("install", async e => {
     const cache = await caches.open(cacheName);

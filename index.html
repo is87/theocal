@@ -1,53 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <title>Theocratic Calendar</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" sizes="192x192" href="icons-192.png">
-  <link rel="apple-touch-icon" href="icons-192.png">
-  <script src="hammer.js"></script>
-  <script src="index.js"></script>
-  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-<meta charset="utf-8">
-<meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#328b8c">
-<style>
-.ring{
-  position:absolute; top:25%; left:25%;; width:50%; height:50%; border-radius:50%; background-color:transparent; border:1px solid #ec2c2c;
-}
-.ring2{
-  top:20%; left:20%;; width:60%; height:60%;
-}
-.ring3{
-  top:15%; left:15%;; width:70%; height:70%;
-}
-.dot{
-  position:absolute; top:32%; left:32%;; width:36%; height:36%; border-radius:50%; background-color: #328b8c; border:1px solid #328b8c; z-index: -1;
-}
-</style>
+    <title>Theocratic Calendar</title>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script src="hammer.min.js"></script>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 </head>
-<body style="background-color: #ECEAE7; background-color: #FFFFFF; font-family: 'Quicksand', sans-serif; padding:0; margin:0; color:#333;">
-  <div id="navBox" style="background-color:#328b8c; color:#fff; height: 40px; text-align:center; line-height:40px; box-shadow: 0px 2px 1px #999;"></div>
-  <div id="monthBox" style="font-size: 12px; width: 100%; overflow:auto; position: absolute; left:0px; top: 40px; bottom: 40px;"></div>
-  <div id="popupBox" onclick="hidePopup();" style="width: 100%; max-height: 50%; overflow:auto; font-size: 12px; position: fixed; left: 0px; bottom: 40px; background-color: #000; color:#fff;  text-align:center; display: none; padding:0; margin:0;";></div>
-  <div id="dayBox" onClick="backToMonth();" style=" color: #5B3C88; display:none; padding: 10px; box-sizing: border-box; position: absolute; left:0px; top: 40px; width: 100%; bottom:40px; overflow:auto; z-index:-1; "></div>
-  <div id="scheduleBox" style=" color: #5B3C88; display:none; padding: 10px; box-sizing: border-box; position: absolute; left:0px; top: 40px; width: 100%; bottom:40px; overflow:auto; z-index:-1; "></div>
-  <div id="bottomBox" style="width: 100%; height: 40px; font-size: 12px; position: fixed; left: 0px; bottom: 0px; background-color: #328b8c; color:#fff;  text-align:center; line-height:40px;"><span onClick="seeToday();">TODAY</span> - <span onClick="seeThisMonth();">THIS MONTH</span> <!--- <span onClick="loadMySchedule(true);">MY SCHEDULE</span> -->- <span onClick="showSettings();">SETTINGS<span></div>
-  <div id="modal" style="display:none; position:fixed; left:0; top:0; width:100%; height:100%; z-index:1; overflow:auto; background-color:rgba(0,0,0,0.4);">
-    <div style='background-color: #fefefe; margin: 10% auto; width: 80%; box-shadow: 2px 2px 5px #666;'>
-      <div style="width: 100%; height: 40px; background-color: #328b8c; line-height: 40px; padding-left: 10px; padding-right: 10px; box-sizing: border-box; color: #555; font-weight:bold;"><span onClick="hideSettings();" style="float:right; font-weight:bold; cursor: pointer; color:#900;">X</span>SETTINGS</div>
-      <div style="padding: 10px;">
-        My name:<br/><input id="settingsName" type="text"/><br/><br/>
-        My service group:<br/>
-        <input type="radio" id="settingsGroup1" name="group" value="Group 1"> Group 1<br/>
-        <input type="radio" id="settingsGroup2" name="group" value="Group 2"> Group 2<br/><br/>
-        <input type="button" onclick="allowNotifications();" value="Allow notifications"/><br/><br/>
-        <input type="button" onClick="saveSettings()" value="Save changes"/>
-        <span onClick="about();" style="float:right; font-size: 8pt; position:relative; top:10px;">About this app</span>
-      </div>
-      <div id="aboutBox" style="display:none; padding: 10px; text-align:center; border-top: 1px solid #333;">Congregation Schedule v0.61<br><br><span style="font-size: 8pt;">Code and design: Isak Ståhl<br>Design: Samuel Ståhl<span><br><a href="#" onclick="send_message_to_sw('delete');">Force reload (BETA)</a><br><a href="?new=yes">Soft reload</a></div>
-      </div>
-  </div>
+
+<body>
+
+    <div id="top">
+<span onclick="previousMonth();"><<</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="activeMonth">Month</span> <span id="activeMonthYear">Year</span>&nbsp;&nbsp;&nbsp;&nbsp;<span onclick="comingMonth();">>></span>
+    </div>
+
+    <div id="topOverlay">
+    </div>
+    
+
+    <div id="main">
+    </div>
+
+    <div id="overlay">
+    </div>
+
+    <div id="bottom">
+        TheoCal
+    </div>
 </body>
+
 </html>
