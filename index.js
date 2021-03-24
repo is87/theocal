@@ -65,14 +65,14 @@ function drawGridDay(id, dateStr, inactive = false){
     thisClass = "";
     if(todayStr==dateStr){
         thisClass="today";
-        document.getElementById(id).style.backgroundColor = "#f3f3f3";
+        //document.getElementById(id).style.backgroundColor = "#328b8c";
     }
     if(inactive){
         //thisClass="inactive";
         document.getElementById(id).style.opacity = "60%";
     }
     document.getElementById(id).setAttribute("data-date", dateStr);
-    document.getElementById(id).innerHTML = "<span class='"+thisClass+"'>"+removeZero(dateStr.substr(8))+"</span>";
+    document.getElementById(id).innerHTML = "<div class='"+thisClass+"'>"+removeZero(dateStr.substr(8))+"</div>";
     //document.getElementById(id).innerHTML += "<div class='gridEvent'>"+dateStr+"</div>";
     for(j=0;j<data.events.length;j++){
         if(data.events[j].date == dateStr){

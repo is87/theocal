@@ -71,8 +71,8 @@ body{
     white-space: pre;
     overflow: hidden;
     margin-top: 0.3vh;
-    padding-top: 0.1vh;
-    padding-bottom: 0.1vh;
+    padding-top: 0.2vh;
+    padding-bottom: 0.2vh;
 }
 
 .dayEvent{
@@ -111,13 +111,9 @@ body{
 }
 
 .today{
-    /*background-color: #328b8c;
+    background-color: #328b8c;
     color: #fff;
-    border-radius: 0.5vh;
-    padding-left: 0.5vh;
-    padding-right: 0.5vh;*/
-    font-weight: bold;
-    color: #328b8c;
+    width: 100%;
 }
 
 .inactive{
