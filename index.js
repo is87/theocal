@@ -70,11 +70,14 @@ function drawGridDay(id, dateStr, inactive = false){
     //document.getElementById(id).innerHTML += "<div class='gridEvent'>"+dateStr+"</div>";
     for(j=0;j<data.events.length;j++){
         if(data.events[j].date == dateStr){
-            document.getElementById(id).innerHTML += "<div class='gridEvent'><span class='gridEventHeading'>"+data.events[j].type+"</span></div>";
+            document.getElementById(id).innerHTML += "<div class='gridEvent'><span class='gridEventHeading'>"+data.events[j].time+"</span></div>";
             if(data.events[j].type == "Midweek Meeting" || data.events[j].type == "Weekend Meeting")document.getElementById(id).lastChild.classList = "gridEvent meeting";
             if(data.events[j].type == "Meeting for Field Service"){
                 document.getElementById(id).lastChild.classList = "gridEvent fieldService";
-                document.getElementById(id).lastChild.innerHTML += "<br><span class='gridEventSubheading'>"+data.events[j].items[0].name+"</span>";
+                namn = data.events[j].items[0].name;
+                a = namn.indexOf(" ");
+                namn = namn.substr(0,1)+". "+namn.substr(a);
+                document.getElementById(id).lastChild.innerHTML += "<br><span class='gridEventSubheading'>"+namn+"</span>";
             }
         }
         
