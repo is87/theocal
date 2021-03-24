@@ -90,10 +90,12 @@ body{
 }
 
 .gridEventHeading{
+    font-weight: bold;
 }
 
 .gridEventSubheading{
-    color: #ddd;
+    color: #FFF;
+    font-weight: lighter;
 }
 
 .meeting{
