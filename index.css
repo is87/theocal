@@ -70,7 +70,7 @@ body{
     border-radius: 0.1vh;
     white-space: pre;
     overflow: hidden;
-    margin-top: 0.3vh;
+    margin-bottom: 0.3vh;
     padding-top: 0.2vh;
     padding-bottom: 0.2vh;
 }
@@ -111,7 +111,8 @@ body{
 }
 
 .today{
-    color: #fff;
+    color: #328b8c;
+    font-weight: bold;
 }
 
 .inactive{

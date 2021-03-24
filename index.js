@@ -64,15 +64,17 @@ function getMonthName(dateStr){
 function drawGridDay(id, dateStr, inactive = false){
     thisClass = "";
     if(todayStr==dateStr){
-        //thisClass="today";
-        document.getElementById(id).style.backgroundColor = "#def3f3";
+        thisClass="today";
+        document.getElementById(id).style.backgroundColor = "#ffffff";
+    }else{
+        document.getElementById(id).style.backgroundColor = "#f9f9f9";
     }
     if(inactive){
         //thisClass="inactive";
-        document.getElementById(id).style.opacity = "60%";
+        document.getElementById(id).style.opacity = 0.6;
     }
     document.getElementById(id).setAttribute("data-date", dateStr);
-    document.getElementById(id).innerHTML = "<div class='"+thisClass+"'>"+removeZero(dateStr.substr(8))+"</div>";
+    document.getElementById(id).innerHTML = "<div style='margin-bottom:1vh;' class='"+thisClass+"'>"+removeZero(dateStr.substr(8))+"</div>";
     //document.getElementById(id).innerHTML += "<div class='gridEvent'>"+dateStr+"</div>";
     for(j=0;j<data.events.length;j++){
         if(data.events[j].date == dateStr){
