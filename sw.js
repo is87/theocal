@@ -1,6 +1,6 @@
 const cacheName = "data-v1";
 const staticAssets = [
-    "./hammer.min.js",
+    "./hammer.js",
     "./manifest.json",
     "./index.html",
     "./index.js",
