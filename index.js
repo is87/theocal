@@ -226,7 +226,11 @@ function loadJSON() {
 
 function init() {
     myName = "";
-    if (localStorage.getItem("name") != null) myName = localStorage.getItem("name");
+    if (localStorage.getItem("name") != null){
+        myName = localStorage.getItem("name");
+    }else{
+        localStorage.setItem("name", "");
+    }
     today = new Date();
     todayStr = dateToString(today);
     timeStr = addZero(today.getHours()) + ":" + addZero(today.getMinutes());
@@ -268,5 +272,18 @@ function getTimeDifference(a, b) {
     hs = Math.floor(mins / 60);
     mins = mins % 60;
     document.getElementById("bottom").innerHTML = "<span onclick='clickDay(null, \""+data.events[nextEvent].date+"\");'>Next event in " + hs + " hours and " + mins + " minutes</span>";
-    console.log("Next event in " + hs + " hours and " + mins + " minutes");
+    setTimeout(function(){ document.getElementById("bottom").innerHTML = ""; }, 10000);
+    //console.log("Next event in " + hs + " hours and " + mins + " minutes");
+}
+
+function showSettings(){
+    document.getElementById("settingsBack").style.display = "block";
+    document.getElementById("settingsName").value = localStorage.getItem("name");
+}
+
+function saveSettings(){
+    localStorage.setItem("name", document.getElementById("settingsName").value);
+    myName = document.getElementById("settingsName").value;
+    document.getElementById("settingsBack").style.display = "none";
+    drawMonth(activeMonth);
 }

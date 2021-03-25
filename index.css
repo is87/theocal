@@ -122,3 +122,24 @@ body{
 #activeMonth{
     font-weight: bold;
 }
+#settingsBack{
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff66;
+    z-index: 100;
+    display: none;
+}
+
+#settings{
+    color:#ffffff;
+    padding-left: 1vh;
+    position: fixed;
+    top:25vh;
+    left:5vw;
+    right: 5vw;
+    height: 50vh;
+    background-color: #328d8c;
+}

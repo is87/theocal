@@ -22,6 +22,15 @@
 <span onclick="previousMonth();"><<</span>&nbsp;&nbsp;&nbsp;&nbsp;<span id="activeMonth">Month</span> <span id="activeMonthYear">Year</span>&nbsp;&nbsp;&nbsp;&nbsp;<span onclick="comingMonth();">>></span>
     </div>
 
+    <i class="fa fa-cog" style="position: absolute; right: 2vh; top: 1.5vh; color: white;" aria-hidden="true" onclick="showSettings();"></i>
+
+    <div id="settingsBack"><div id="settings">
+        <h3>Settings</h3>
+        My name:<br>
+        <input id="settingsName" type="text" /><br><br>
+        <button onclick="saveSettings();">Save settings</button>
+    </div></div>
+
     <div id="topOverlay">
     </div>
     
