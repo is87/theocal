@@ -79,6 +79,7 @@ function drawGridDay(id, dateStr, inactive = false){
     for(j=0;j<data.events.length;j++){
         if(data.events[j].date == dateStr){
             document.getElementById(id).innerHTML += "<div class='gridEvent'><span class='gridEventHeading'>"+data.events[j].time+"</span></div>";
+            if(JSON.stringify(data.events[j]).indexOf(myName) != -1 && myName != "")document.getElementById(id).lastChild.style.borderBottom = "2px solid #328b8c";
             if(data.events[j].type == "Midweek Meeting" || data.events[j].type == "Weekend Meeting")document.getElementById(id).lastChild.classList = "gridEvent meeting";
             if(data.events[j].type == "Meeting for Field Service"){
                 document.getElementById(id).lastChild.classList = "gridEvent fieldService";
@@ -153,9 +154,18 @@ function drawDayEvent(event){
     str+="'>";
     str += "<div style='text-align:center'>"+event.time + " <span style='font-weight:bold;'>" + event.type+"</span></div><div class='dayEventGrid'>";
     for(j=0;j<event.items.length;j++){
-        str += "<div>"+event.items[j].type+"</div><div>"+event.items[j].name;
+        str += "<div>"+event.items[j].type+"</div><div>";
+        if(event.items[j].name.indexOf(myName) != -1 && myName != ""){
+            str += "<b>"+event.items[j].name+"</b>";
+        }else{
+            str += event.items[j].name;
+        }
         if(typeof event.items[j].name2 !== 'undefined'){
-            str += "<br>("+event.items[j].name2+")";
+            if(event.items[j].name2.indexOf(myName) != -1 && myName != ""){
+                str += "<br><b>("+event.items[j].name2+")</b>";
+            }else{
+                str += "<br>("+event.items[j].name2+")";
+            }
         }
         str+="</div>";
     }
@@ -210,6 +220,8 @@ function loadJSON(){
   }
 
   function init(){
+      myName = "";
+      if(localStorage.getItem("name") != null)myName = localStorage.getItem("name");
     today = new Date();
     todayStr = dateToString(today);
     clickTime = today.valueOf();
