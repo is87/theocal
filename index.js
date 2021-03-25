@@ -212,7 +212,6 @@ function loadJSON(){
   function init(){
     today = new Date();
     todayStr = dateToString(today);
-    todayStr ="2021-03-30";
     clickTime = today.valueOf();
     var mc = new Hammer(document.getElementById("main"));
     mc.on("swipeleft", function(ev) {
