@@ -26,7 +26,7 @@ function addZero(a){
     dd = new Date(dateStr);
     y = dd.getFullYear();
     m = dd.getMonth();
-    d = dd.getDate();
+    //d = dd.getDate();
     m = m+months;
     if(m>11){
         m -= 12;
@@ -37,7 +37,7 @@ function addZero(a){
         m += 12;
         y -= 1;
       }
-    newDate = new Date(y,m,d);
+    newDate = new Date(y,m,1);
     return newDate.getFullYear()+"-"+addZero(newDate.getMonth()+1)+"-"+addZero(newDate.getDate());
 }
 
@@ -84,7 +84,7 @@ function drawGridDay(id, dateStr, inactive = false){
                 document.getElementById(id).lastChild.classList = "gridEvent fieldService";
                 namn = data.events[j].items[0].name;
                 a = namn.indexOf(" ");
-                namn = namn.substr(0,1)+". "+namn.substr(a);
+                namn = namn.substr(0,1)+"."+namn.substr(a);
                 document.getElementById(id).lastChild.innerHTML += "<br><span class='gridEventSubheading'>"+namn+"</span>";
             }
         }
@@ -212,6 +212,7 @@ function loadJSON(){
   function init(){
     today = new Date();
     todayStr = dateToString(today);
+    todayStr ="2021-03-30";
     clickTime = today.valueOf();
     var mc = new Hammer(document.getElementById("main"));
     mc.on("swipeleft", function(ev) {
