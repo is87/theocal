@@ -224,6 +224,9 @@ function loadJSON(){
       if(localStorage.getItem("name") != null)myName = localStorage.getItem("name");
     today = new Date();
     todayStr = dateToString(today);
+    timeStr = addZero(today.getHours())+":"+addZero(today.getMinutes());
+    nextEvent = findNextEvent(todayStr, timeStr);
+    getTimeDifference(Date.parse(data.events[nextEvent].date+"T"+data.events[nextEvent].time), today);
     clickTime = today.valueOf();
     var mc = new Hammer(document.getElementById("main"));
     mc.on("swipeleft", function(ev) {
@@ -242,4 +245,23 @@ function loadJSON(){
     });
     
     drawMonth(todayStr);
+  }
+
+  function findNextEvent(dateStr, timeStr){
+      found = -1;
+      for(i=0;i<data.events.length;i++){
+        if((dateStr+timeStr)<(data.events[i].date+data.events[i].time)){
+            if(found==-1){found = i;console.log(data.events[i].date+data.events[i].time);}
+        }
+        //if(dateStr < data.events[i].date || (dateStr == data.events[i].date && timeStr <  ) ) 
+      }
+      return found;
+  }
+
+  function getTimeDifference(a, b){
+      mins = Math.ceil((a-b)/60000);
+      hs = Math.floor(mins/60);
+      mins = mins%60;
+      document.getElementById("bottom").innerText = "Next event in "+hs+" hours and "+ mins+" minutes";
+      console.log("Next event in "+hs+" hours and "+ mins+" minutes");
   }
