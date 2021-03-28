@@ -112,7 +112,7 @@ body{
 
 .today{
     color: #328b8c;
-    font-weight: bold;
+    text-decoration: underline;
 }
 
 .inactive{
