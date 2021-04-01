@@ -25,9 +25,28 @@
     <i class="fa fa-cog" style="position: absolute; right: 2vh; top: 1.5vh; color: white;" aria-hidden="true" onclick="showSettings();"></i>
 
     <div id="settingsBack"><div id="settings">
-        <h3>Settings</h3>
-        My name:<br>
-        <input id="settingsName" type="text" /><br><br>
+        <div style="width:100%; border-bottom: 1px solid #333;"><h2><i class="fa fa-arrow-left" aria-hidden="true" onclick="hideSettings();"></i>   Settings</h2></div>
+        <h3>My name:</h3>
+        <input style="font-size: 2vh;" id="settingsName" type="text" /><br><br>
+
+        <h3>Customize colors:</h3>
+        
+        <input type="color" id="meetingColor" name="meetingColor"
+           value="#ffffff">
+        <label for="meetingColor">Congregation meetings</label><br><br>
+
+        <input type="color" id="serviceColor" name="serviceColor"
+           value="#ffffff">
+        <label for="serviceColor">Meetings for field service</label><br><br>
+
+        <input type="color" id="specialColor" name="specialColor"
+           value="#ffffff">
+        <label for="specialColor">Other events</label><br><br>
+
+        <button onclick="resetColors();">Default colors</button>
+        
+        <br><br><br><br>
+        
         <button onclick="saveSettings();">Save settings</button>
     </div></div>
 

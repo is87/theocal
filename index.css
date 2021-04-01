@@ -1,16 +1,22 @@
+:root{
+    --theme-color: #328b8c;
+    --meeting-color: #ec2c2c;
+    --service-color: #eca02c;
+    --special-color: #881f9b;
+}
 body{
     margin:0;
     font-family: 'Quicksand';
 }
 #top{
-    background-color: #328b8c;
+    background-color: var(--theme-color);
     color: #fff;
     height: 5vh;
     line-height: 5vh;
     text-align: center;
 }
 #topOverlay{
-    background-color: #328b8c;
+    background-color: var(--theme-color);
     color: #fff;
     height: 5vh;
     line-height: 5vh;
@@ -43,7 +49,7 @@ body{
     display: none;
 }
 #bottom{
-    background-color: #328b8c;
+    background-color: var(--theme-color);
     color: #fff;
     position: absolute;
     bottom: 0;
@@ -64,7 +70,7 @@ body{
 }
 .gridEvent{
     color: #fff;
-    background-color: #881f9b;
+    background-color: var(--special-color);
     font-size: 1vh;
     /*border: 1px solid #881f9b;*/
     border-radius: 0.1vh;
@@ -78,7 +84,7 @@ body{
 .dayEvent{
     margin-top: 1vh;
     color: #fff;;
-    background-color: #881f9b;
+    background-color: var(--special-color);
     padding:1vh;
     
 }
@@ -101,17 +107,17 @@ body{
 }
 
 .meeting{
-    background-color: #ec2c2c;
+    background-color: var(--meeting-color);
     /*border: 1px solid #ec2c2c;*/
 }
 
 .fieldService{
-    background-color: #eca02c;
+    background-color: var(--service-color);
     /*border: 1px solid #eca02c;*/
 }
 
 .today{
-    color: #328b8c;
+    color: var(--theme-color);
     text-decoration: underline;
 }
 
@@ -134,12 +140,12 @@ body{
 }
 
 #settings{
-    color:#ffffff;
+    background-color: white;
+    color:#333;
     padding-left: 1vh;
     position: fixed;
-    top:25vh;
-    left:5vw;
-    right: 5vw;
-    height: 50vh;
-    background-color: #328d8c;
+    top:0;
+    left:0;
+    right: 0;
+    bottom: 0;
 }

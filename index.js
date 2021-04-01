@@ -231,11 +231,18 @@ function init() {
     }else{
         localStorage.setItem("name", "");
     }
+    document.documentElement.style.setProperty("--meeting-color", "#ec2c2c");
+    document.documentElement.style.setProperty("--service-color", "#eca02c");
+    document.documentElement.style.setProperty("--special-color", "#881f9b");
+    if (localStorage.getItem("meetingColor") != null)document.documentElement.style.setProperty("--meeting-color", localStorage.getItem("meetingColor"));
+    if (localStorage.getItem("serviceColor") != null)document.documentElement.style.setProperty("--service-color", localStorage.getItem("serviceColor"));
+    if (localStorage.getItem("specialColor") != null)document.documentElement.style.setProperty("--special-color", localStorage.getItem("specialColor"));
+    
     today = new Date();
     todayStr = dateToString(today);
     timeStr = addZero(today.getHours()) + ":" + addZero(today.getMinutes());
     nextEvent = findNextEvent(todayStr, timeStr);
-    getTimeDifference(Date.parse(data.events[nextEvent].date + "T" + data.events[nextEvent].time), today);
+    if(nextEvent != -1)getTimeDifference(Date.parse(data.events[nextEvent].date + "T" + data.events[nextEvent].time), today);
     clickTime = today.valueOf();
     var mc = new Hammer(document.getElementById("main"));
     mc.on("swipeleft", function (ev) {
@@ -279,11 +286,30 @@ function getTimeDifference(a, b) {
 function showSettings(){
     document.getElementById("settingsBack").style.display = "block";
     document.getElementById("settingsName").value = localStorage.getItem("name");
+    document.getElementById("meetingColor").value = document.documentElement.style.getPropertyValue("--meeting-color");
+    document.getElementById("serviceColor").value = document.documentElement.style.getPropertyValue("--service-color");
+    document.getElementById("specialColor").value = document.documentElement.style.getPropertyValue("--special-color");
 }
 
 function saveSettings(){
     localStorage.setItem("name", document.getElementById("settingsName").value);
     myName = document.getElementById("settingsName").value;
+    localStorage.setItem("meetingColor", document.getElementById("meetingColor").value);
+    localStorage.setItem("serviceColor", document.getElementById("serviceColor").value);
+    localStorage.setItem("specialColor", document.getElementById("specialColor").value);
+    document.documentElement.style.setProperty("--meeting-color", document.getElementById("meetingColor").value);
+    document.documentElement.style.setProperty("--service-color", document.getElementById("serviceColor").value);
+    document.documentElement.style.setProperty("--special-color", document.getElementById("specialColor").value);
     document.getElementById("settingsBack").style.display = "none";
     drawMonth(activeMonth);
+}
+
+function hideSettings(){
+    document.getElementById("settingsBack").style.display = "none";
+}
+
+function resetColors(){
+    document.getElementById("meetingColor").value = "#ec2c2c";
+    document.getElementById("serviceColor").value = "#eca02c";
+    document.getElementById("specialColor").value = "#881f9b";
 }
